@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+   <!-- Header section -->
+   <div class="w-full sticky top-0 z-50 h-[100px]  px-5 lg:px-10 py-5 header">
+    
+    <nav class="flex justify-between items-center">
+        <!-- Logo section -->
+        <div class="logo w-[33%] flex items-center">
+          <img class="w-[40px] h-[40px] mr-2" src="/assets/logo.svg" alt="logo">
+            <h2 class="font-bold">Silicon</h2>
+        </div>
+        <!-- Navigation links section -->
+        <div class="nav-links hidden lg:block w-[33%] ">
+            <ul class="flex gap-4 justify-center text-black font-sans">
+                <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Landings<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+                <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Pages<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+                <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Account<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+                <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">UI Kit</a></li>
+                <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Docs</a></li>
+            </ul>
+        </div>
+        <!-- Navigation buttons section -->
+        <div class="nav-buttons w-[33%] flex justify-end items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div id="autoModeToggle" class="bg-gray-200 text-gray-800 px-2 py-1 text-sm rounded-full flex items-center justify-between w-24 relative overflow-hidden cursor-pointer">
+                    <span id="modeText" class="text-xs transition-colors duration-300">Auto</span>
+                    <div class="flex items-center transition-transform duration-300 ease-in-out absolute right-1" id="iconContainer">
+                        <svg id="sunIcon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="moonIcon" class="w-4 h-4 hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </div>
+                </div>
+                <script>
+                  
+                </script>
+                <button class="login-btn hidden lg:block text-white bg-black px-4 py-2 rounded-md">Login</button>
+                <button class="block lg:hidden text-gray-800" id="menuToggle">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+   </div>
+   <!-- Mobile menu section -->
+  
+    <div class="menu hidden absolute rounded-[1rem]  top-[60px] right-[20px] transition-all duration-300 ease-in-out  lg:hidden w-[200px] py-2 px-4 z-[1000] bg-[#4849831e] bg-opacity-60 backdrop-filter backdrop-blur-sm">
+        <ul class="flex flex-col justify-start gap-4">
+            <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Landings<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+            <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Pages<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+            <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Account<svg class="w-3 h-3 translate-y-[1.5px] ml-1 flex items-center justify-center transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a></li>
+            <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">UI Kit</a></li>
+            <li><a href="#" class="flex items-center justify-center text-[1.2rem] hover:text-blue-500">Docs</a></li>
+            <button class="login-btn text-white bg-black px-4 py-2 rounded-md">Login</button>
+        </ul>
+        <script>
+            // Toggle mobile menu visibility
+            $("#menuToggle").on("click", function () {
+                $(".menu").toggleClass("hidden");
+            })
+        </script>
+    </div>
+   <!-- content section -->
+   <div class="content w-full flex flex-col md:flex-row justify-between p-5 lg:p-[100px]">
+    <div class="left-content w-full sm:w-[100%] md:w-[40%] order-2 md:order-1">  
+        <div class="content-text">
+            <h1 class="text-[40px] md:text-[60px] font-bold">We ride. We care.</h1>
+            <h1 class="text-[40px] md:text-[60px] font-bold">We share.</h1>
+            <p class="text-[1rem] md:text-[1.2rem] text-gray-500 text-wrap max-w-[300px] md:w-[500px] py-4">Empower citizens to move with ease and style by sharing sustainable vehicles.</p>
+        </div>
+        <div class="other-content py-3" >
+            <div class="content-list">
+                <div id="progress-bar" class=" w-[100%] lg:w-[50%] bg-[#4849831e] h-[6px]  mb-2 rounded-sm">
+                    <div class="w-[60%] h-full bg-green-400 relative rounded-sm ">
+                        <div class=" text-white bg-black w-[23px] h-[23px] absolute top-[-9px] right-0 rounded-lg font-bold flex items-center justify-center">K</div>
+                    </div>
+                </div>
+                <li class="list-none"><svg class="w-4 h-4 mr-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>$8,294 pledged</li>
+                <li class="list-none"><svg class="w-4 h-4 mr-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>63% funded</li>
+                <li class="list-none"><svg class="w-4 h-4 mr-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>15 days to go</li>
+            </div>
+            <button class="bg-[#4044ee] my-3 w-full lg:w-[50%]  text-white px-4 py-2 rounded-md flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-[#3235be] hover:shadow-lg" style="font-family: Arial, sans-serif;">
+                Back this project
+                <svg class="w-4 h-4 ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="right-content" class="right-content flex p-4 order-1 md:order-2 relative w-full md:w-[60%] h-[300px] sm:w-[400px] sm:h-[400px] ">
+        <div class="image-container rounded-md absolute top-[-50px] lg:top-[-150px] ">
+            <img class="z-[100]" src="/assets/scooters.png" alt="scooters">
+            <img class="absolute w-[700px] z-[-50] top-0" src="/assets/phone.png" alt="phone">
+        </div>
+    </div>
+   </div>
+   
+    <!--good-bye section -->
+    <div class="goodbye-section w-full px-10 py-10 lg:px-[70px]">
+    <div class="items-list flex gap-5 lg:gap-[100px] flex-col md:flex-row items-center justify-center">
+            <div class="item font-sans text-l px-1 py-2 lg:py-[4rem] lg:px-4 text-sm lg:text-[19px] text-white text-center gsap-item">
+            <img class="w-[50px] h-[50px] mb-3 mx-auto" src="/assets/01.svg" alt="icon1">
+            <h2 class="font-bold text-black">Freedom of movement</h2>
+            <p class="text-gray-500 text-wrap max-w-[300px] md:w-[500px]">Integer laoreet aliquam mi, est at vitae, egestas. Nisl proin ipsum dui, sagittis mauris vel arcu lacinia massa.</p>
+        </div>
+        <div class="item px-1 py-2 lg:py-[4rem] lg:px-4 text-sm lg:text-[19px] text-white text-center gsap-item">
+            <img class="w-[50px] h-[50px] mb-3 mx-auto" src="/assets/diamond.svg" alt="icon2">
+            <h2 class="font-bold text-black">Quality & style</h2>
+            <p class="text-gray-500 text-wrap max-w-[300px] md:w-[500px]">Nunc aliquam arcu pretium mauris nibh quisque quis. Urna purus fringilla iaculis turpis libero mattis commodo.</p>
+        </div>
+        <div class="item  px-1 py-2 lg:py-[4rem] lg:px-4 text-sm lg:text-[19px] text-white text-center gsap-item">
+            <img class="w-[50px] h-[50px] mb-3 mx-auto" src="/assets/planet.svg" alt="icon3">
+            <h2 class="font-bold text-black">Cities made for living</h2>
+            <p class="text-gray-500 text-wrap max-w-[300px] md:w-[500px]">Mattis urna ultricies non amet, purus in auctor non. Odio vulputate ac nibh diam volutpat posuere venenatis.</p>   
+        </div>
+    </div>
+
+    
+    </div>
+    <!--detales section -->
+    <div class="details-section w-full px-3 py-5 lg:py-[100px]  lg:px-[70px]" style="background: linear-gradient(90deg, rgba(33, 33, 84, 0.148) 0%, rgba(138, 92, 246, 0.192) 50%, rgba(216, 70, 239, 0.178) 100%) !important;">
+        <div class="details-content ">
+           <div class="text-details py-0 lg:py-20 flex flex-col lg:flex-row items-center justify-between">
+            <div class="heading-details w-[100%] lg:w-[50%]">
+                <h1 class="text-[1.5rem] md:text-[40px] font-bold lg:px-10 pt-4  lg:text-left">User-friendly electric <span class="text-[#4044ee]">scooter</span> designed exceptionally for <span class="text-[#4044ee]">sharing</span></h1>
+            </div>
+            <div class="paragraph-details w-[100%] lg:w-[50%]">
+                <p class="text-gray-500 t text-[1.3rem] ">With a seamless form and swanlike silhouette, our scooter is designed to change micro-mobility forever. We engineered
+                every element around the comfort of our riders, putting the vehicle through rigorous testing to verify its safety and
+                durability in all environments.</p>
+            </div>
+           </div>
+      
+                <div class="relative bg-gray-900 rounded-lg overflow-hidden px-5  mt-5 pt-[9.7%] pb-[6%]">
+                    <div class="absolute inset-0 bg-black bg-opacity-4"></div>
+                    <div class="relative z-10 mx-auto max-w-[852px]">
+                        <img src="/assets/scooter.png" class="block" alt="Scooter">
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-0 left-[61.7%]">
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                1</div>
+                            <div class="text-xl text-white opacity-70 ml-3 hidden md:block">GPS / GSM enabled</div>
+                            <div class="text-sm text-white opacity-70 ml-2 md:hidden">GPS / GSM enabled</div>
+                        </div>
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-[3.2%] right-[68.3%]">
+                            <div class="text-xl text-white opacity-70 mr-3 hidden md:block">Urban design</div>
+                            <div class="text-sm text-white opacity-70 mr-2 md:hidden">Urban design</div>
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                2</div>
+                        </div>
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-[26.8%] right-[49.9%]">
+                            <div class="text-xl text-white opacity-70 mr-3 text-right hidden md:block">Long-lasting<br>battery
+                            </div>
+                            <div class="text-sm text-white opacity-70 mr-2 text-right md:hidden">Long-lasting<br>battery</div>
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                3</div>
+                        </div>
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-[45%] left-[64.8%]">
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                4</div>
+                            <div class="text-xl text-white opacity-70 ml-3 hidden md:block">Anti-theft<br>encryption</div>
+                            <div class="text-sm text-white opacity-70 ml-2 md:hidden">Anti-theft<br>encryption</div>
+                            <div class="text-sm text-white opacity-70 mr-2 text-right md:hidden">Safety elements</div>
+                        </div>
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-[62%] right-[74.5%]">
+                            <div class="text-xl text-white opacity-70 mr-3 text-right hidden">Safety elements</div>
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                5</div>
+                        </div>
+        
+                        <!-- Hotspot -->
+                        <div class="flex items-center absolute top-[67%] left-[72.5%]">
+                            <div class="btn btn-icon btn-primary w-[40px] h-[40px] flex items-center justify-center bg-transparent border-2 border-blue-500 text-lg text-white font-bold rounded-full pointer-events-none">
+                                6</div>
+                            <div class="text-xl text-white opacity-70 ml-3 hidden md:block">Enhanced motor<br>output</div>
+                            <div class="text-sm text-white opacity-70 ml-2 md:hidden">Enhanced motor<br>output</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           </div>
+           </div>
+        </div>
+    </div>
+    <!-- So, how does it work? section -->
+    <div class="how-it-works-section w-full px-5 pt-3 lg:pt-10 lg:px-[70px]">
+        <div class="how-it-works-content-heading ">
+            <h1 class="text-[1.5rem]  md:text-[40px] font-bold pb-1  lg:px-10  lg:text-center">So, how does it work?</h1>
+        </div>
+            <div class="how-it-works-content-item flex items-center overflow-hidden bg-gradient-primary mt-[100px] justify-between flex-col lg:flex-row rounded-[1.5rem] ">
+                <div class="image-container rounded-md lg:w-1/2" style="background: linear-gradient(90deg, rgba(13, 13, 204, 0.821) 0%, rgba(147, 20, 216, 0.777) 100%) !important;">
+                    <img src="/assets/mob.svg" alt="scooter" class="w-full h-auto">
+                </div>
+                <div class="text-container lg:w-1/2 lg:pl-20">
+                    <h2 class="text-[1.5rem] md:text-[30px] text-[#4044ee] font-bold pt-4 lg:text-left">Step 1</h2>
+                    <h1 class="text-[1.5rem] md:text-[40px] font-bold pt-4 lg:text-left">Find a scooter nearby</h1>
+                    <p class="text-gray-500 text-[1.3rem] mt-4">Use the map in the app to find your closest scooter. You can also book it 40 minutes in advance.</p>
+                </div>
+            </div>
+            <div class="how-it-works-content-item flex items-center overflow-hidden bg-gradient-primary mt-[30px] lg:mt-[100px] justify-between flex-col lg:flex-row rounded-[1.5rem]">
+                <div class="image-container rounded-md lg:w-1/2"
+                    style="background: linear-gradient(90deg, rgba(13, 13, 204, 0.821) 0%, rgba(147, 20, 216, 0.777) 100%) !important;">
+                    <img src="/assets/mob.svg" alt="scooter" class="w-full h-auto">
+                </div>
+                <div class="text-container lg:w-1/2 lg:pl-20">
+                    <h2 class="text-[1.5rem] md:text-[30px] text-[#4044ee] font-bold pt-4 lg:text-left">Step 2</h2>
+                    <h1 class="text-[1.5rem] md:text-[40px] font-bold pt-4 lg:text-left">Scan QR code to unlock</h1>
+                    <p class="text-gray-500 text-[1.3rem] mt-4">Scan the QR code on the scooter using your smartphone camera to unlock it and start your ride.</p>
+                </div>
+            </div>
+            <div class="how-it-works-content-item flex items-center overflow-hidden bg-gradient-primary mt-[30px] lg:mt-[100px] justify-between flex-col lg:flex-row rounded-[1.5rem]">
+                <div class="image-container rounded-md lg:w-1/2"
+                    style="background: linear-gradient(90deg, rgba(13, 13, 204, 0.821) 0%, rgba(147, 20, 216, 0.777) 100%) !important;">
+                    <img src="/assets/mob.svg" alt="scooter" class="w-full h-auto">
+                </div>
+                <div class="text-container lg:w-1/2 lg:pl-20">
+                    <h2 class="text-[1.5rem] md:text-[30px] text-[#4044ee] font-bold pt-4 lg:text-left">Step 3</h2>
+                    <h1 class="text-[1.5rem] md:text-[40px] font-bold pt-4 lg:text-left">Enjoy your ride</h1>
+                    <p class="text-gray-500 text-[1.3rem] mt-4">Follow traffic rules and ride safely to your destination. Remember to wear a helmet!</p>
+                </div>
+            </div>
+            <div class="how-it-works-content-item flex items-center overflow-hidden bg-gradient-primary mt-[30px] lg:mt-[100px] justify-between flex-col lg:flex-row rounded-[1.5rem]">
+                <div class="image-container rounded-md lg:w-1/2"
+                    style="background: linear-gradient(90deg, rgba(13, 13, 204, 0.821) 0%, rgba(147, 20, 216, 0.777) 100%) !important;">
+                    <img src="/assets/mob.svg" alt="scooter" class="w-full h-auto">
+                </div>
+                <div class="text-container lg:w-1/2 lg:pl-20">
+                    <h2 class="text-[1.5rem] md:text-[30px] text-[#4044ee] font-bold pt-4 lg:text-left">Step 4</h2>
+                    <h1 class="text-[1.5rem] md:text-[40px] font-bold pt-4 lg:text-left">Park and end your ride</h1>
+                    <p class="text-gray-500 text-[1.3rem] mt-4">Park the scooter in a designated area and end your ride through the app. Your account will be charged automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Easy way to find e-scooters-->
+    <div class="Easy-way-to-find-e-scooters px-5 py-5 lg:px-[70px] lg:py-[100px] bg-[#f5f5f5]">
+        <div class="esay-content-list">
+            <div class="esay-content-item flex flex-col lg:flex-row ">
+                <div class="esay-text-con lg:w-1/2 order-2 lg:order-1">
+                    <h1 class="text-[1.5rem] md:text-[40px] font-bold pt-4 lg:text-left">Easy way to find e-scooters</h1>
+                    <p class="text-gray-500 text-[1.3rem] mt-4">With a seamless form and swanlike silhouette, our scooter is designed to change micro-mobility forever. We engineered
+                    every element around the comfort of our riders, putting the vehicle through rigorous testing to verify its safety and
+                    durability in all environments.</p> 
+                    <input type="radio" id="progress">
+                    <!--other-content-->
+                    <div class="other-content">
+                        <h2 class="text-[1.5rem] md:text-[30px] font-bold pt-4 lg:text-left">Coming soon on</h2>
+                        <div class="flex mt-7 items-center  gap-6">
+                                  <div class="w-[90px] h-[90px] rounded-md bg-white shadow-lg flex items-center justify-center">
+                                    <img class="z-10 w-[40px] h-[40px]" src="/assets/app-store.png" alt="App Store" class="w-32 h-auto">
+                                  </div>
+                               
+                            <div class="w-[90px] h-[90px] rounded-md bg-white shadow-lg flex items-center justify-center">
+                            <img class="w-[40px] h-[40px]" src="/assets/app.png" alt="Play Store" class="w-32 h-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="esay-image-con lg:w-1/2 order-1 lg:order-2 relative">
+                    <img src="/assets/01.png" alt="scooter" class="img-1 w-full h-auto">
+                    <img  src="/assets/02 (1).png" alt="scooter" class="img-2 absolute top-0 left-0 ">
+                    <img src="/assets/03.png" alt="scooter" class="img-3 absolute top-0 left-0">
+                    <img src="/assets/04.png" alt="scooter" class="img-4 absolute top-0 left-0">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Join the journey!-->
+
+
+</body>
+<script src="./scritp.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.gsap-item').forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 2.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                end: "bottom 15%",
+                toggleActions: "play none none reverse",
+                scrub: 0.5
+            },
+            delay: index * 0.3
+        });
+    });
+    gsap.utils.toArray('.how-it-works-content-item').forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 2.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                end: "bottom 15%",
+                toggleActions: "play none none reverse",
+                scrub: 0.5
+            },
+            delay: index * 0.3
+        });
+    });
+</script>
+<script>
+    $(window).on('load', function () {
+        // Create and append preloader HTML
+        $('body').prepend(`
+                <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #4849831e; display: flex; justify-content: center; align-items: center; z-index: 9999;backdrop-filter: blur(4px);">
+                    <div style="width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #4044ee; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `);
+
+        // Remove preloader after page loads
+        setTimeout(function () {
+            $('#preloader').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }, 500);
+    });
+</script>
+</html>
